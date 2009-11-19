@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require "rubygems"
-require (File.symlink?(__FILE__) ? "bananajour" : File.join(File.dirname(__FILE__), "/../lib/bigbananajour"))
+require (File.symlink?(__FILE__) ? "bigbananajour" : File.join(File.dirname(__FILE__), "/../lib/bigbananajour"))
 
 Thread.abort_on_exception = true
 
@@ -23,10 +23,10 @@ end
 case ARGV.first
 
 when nil
-  pids << BigBananajour.serve_web!
-  pids << BigBananajour.serve_git!
-  pids << BigBananajour.eat_me_some_bananas!
-  pids << BigBananajour.advertise!
+  pids << Bananajour.serve_web!
+  pids << Bananajour.serve_git!
+  pids << Bananajour.eat_me_some_bananas!
+  pids << Bananajour.advertise!
   Process.waitall
 
 when "help", "--help", "-h"
@@ -40,7 +40,7 @@ Commands:
 HELP
 
 when "version", "--version", "-v"
-  puts "bananajour version #{Bananajour::VERSION}"
+  puts "bigbananajour version #{BigBananajour::VERSION}"
 else
   abort "Say what? Try: #{File.basename($0)} help"
 end

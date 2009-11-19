@@ -1,8 +1,8 @@
 Thread.abort_on_exception = true
 
 __DIR__ = File.dirname(__FILE__)
-
-require "#{__DIR__}/../lib/bananajour"
+require 'rubygems'
+require "#{__DIR__}/../lib/bigbananajour"
 
 Bananajour.gem 'sinatra'
 require 'sinatra'

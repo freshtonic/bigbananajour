@@ -8,8 +8,10 @@ class Bananajour::Eater
         unless remote_repo.ismirror 
           local_repo = Bananajour::Repository.for_name(make_local_repo_name(remote_repo))
           if local_repo.exists?
+            $stderr.puts "Eater, fetching changes from remote repo #{remote_repo.name}"
             fetch_latest(local_repo)
           else
+            $stderr.puts "Eater, cloning remote repo #{remote_repo.name}"
             clone_repo(remote_repo)
             fetch_latest(local_repo)
           end
