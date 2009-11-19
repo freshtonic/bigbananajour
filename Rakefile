@@ -5,7 +5,7 @@ require "bigbananajour/version"
 
 gem = Gem::Specification.new do |gem|
   gem.name             = "bigbananajour"
-  gem.version          = bigbananajour::VERSION
+  gem.version          = BigBananajour::VERSION
   gem.platform         = Gem::Platform::RUBY
   gem.extra_rdoc_files = ["Readme.md"]
   gem.summary          = "Bananajour mirroring FTW!"
