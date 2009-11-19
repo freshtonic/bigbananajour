@@ -48,8 +48,11 @@ helpers do
   def pluralize(number, singular, plural)
     "#{number} #{number == 1 ? singular : plural}"
   end
+  def demangle_email(email)
+    email.gsub(/_at_/, "@").gsub(/_dot_/, ".")
+  end
   def mangle_email(email)
-    email.gsub(/@/, "_at_").gsub(/\./, "_dot_")
+    email.gsub(/@/, "_at_").gsub(/./, "_dot_")
   end
 end
 
