@@ -1,23 +1,15 @@
 libdir = File.dirname(__FILE__)
 $LOAD_PATH.unshift(libdir) unless $LOAD_PATH.include?(libdir)
 
-require 'yaml'
-require 'ostruct'
-require 'socket'
-require 'md5'
+require "bananajour"
 
-require 'bigbananajour/gem_dependencies'
-
-BigBananajour.require_gem 'rainbow'
-BigBananajour.require_gem 'dnssd'
-BigBananajour.require_gem 'fancypath'
-
-require 'bananajour/repository'
-require 'bananajour/grit_extensions'
-require 'bananajour/version'
-require 'bananajour/bonjour'
-require 'bananajour/helpers'
-require 'bananajour/commands'
+# Bananajour monkeypatches.
+require 'bigbananajour/bananajour/bananajour'
+require 'bigbananajour/bananajour/commands'
+require 'bigbananajour/bananajour/repository'
+require 'bigbananajour/bananajour/bonjour/advertiser'
+require 'bigbananajour/bananajour/bonjour/repository'
+require 'bigbananajour/bananajour/bonjour/repository_browser'
 
 require 'bigbananajour/eater'
 
