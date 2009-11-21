@@ -5,6 +5,7 @@ require "bananajour"
 
 require 'bigbananajour/email_mangle_helper'
 require 'bigbananajour/eater'
+require 'bigbananajour/version'
 
 # Bananajour monkeypatches.
 require 'bigbananajour/bananajour/bananajour'
