@@ -31,7 +31,8 @@ load "#{__DIR__}/lib/diff_helpers.rb"
 helpers DiffHelpers
 
 require "bananajour/helpers"
-helpers Bananajour::GravatarHelpers, Bananajour::DateHelpers
+require "bigbananajour/email_mangle_helper"
+helpers Bananajour::GravatarHelpers, Bananajour::DateHelpers, BigBananajour::EmailMangleHelper
 
 helpers do
   def json(body)
@@ -48,16 +49,10 @@ helpers do
   def pluralize(number, singular, plural)
     "#{number} #{number == 1 ? singular : plural}"
   end
-  def demangle_email(email)
-    email.gsub(/_at_/, "@").gsub(/_dot_/, ".")
-  end
-  def mangle_email(email)
-    email.gsub(/@/, "_at_").gsub(/./, "_dot_")
-  end
 end
 
 get "/" do
-  @repository_names = Bananajour.repository_names
+  @repository_names = Bananajour.repositories.map{|r| r.name }
   haml :home
 end
 

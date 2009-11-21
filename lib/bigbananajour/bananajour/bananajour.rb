@@ -4,7 +4,9 @@
 module Bananajour
   
   class << self
-    
+
+    include BigBananajour::EmailMangleHelper
+
     def repositories_path
       path/"mirrored_repositories"
     end
