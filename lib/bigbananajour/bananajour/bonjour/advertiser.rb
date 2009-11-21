@@ -8,7 +8,7 @@ class Bananajour::Bonjour::Advertiser
       tr["uri"] = Bananajour.web_uri
       tr["gravatar"] = Bananajour.gravatar
       tr["version"] = Bananajour::VERSION
-      tr["ismirror"] = Bananajour.big?.to_s
+      tr["ismirror"] = "true"
       DNSSD.register("#{Bananajour.config.name}'s bananajour", "_http._tcp,_bananajour", nil, Bananajour.web_port, tr) {}
     end
     def register_new_repositories
@@ -17,7 +17,7 @@ class Bananajour::Bonjour::Advertiser
         tr = DNSSD::TextRecord.new
         tr["name"] = new_repo.name
         tr["uri"] = new_repo.uri
-        tr["ismirror"] = Bananajour.big?.to_s
+        tr["ismirror"] = "true"
         tr["bjour-name"] = Bananajour.config.name
         tr["bjour-email"] = Bananajour.config.email
         tr["bjour-uri"] = Bananajour.web_uri
