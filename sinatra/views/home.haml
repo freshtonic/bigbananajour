@@ -200,4 +200,5 @@
           = email
           - repository = Bananajour::Repository.for_name(mangle_email(email) + "/" + name)
           %p.uri&= repository.uri
-          %p.branches&= repository.grit_repo.branches.map{|b| b.name}.join(" ")
+          %p.branches&= "blah"
+          //repository.grit_repo.branches.map{|b| b.name}.join(" ")

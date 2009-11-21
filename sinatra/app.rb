@@ -52,7 +52,7 @@ helpers do
 end
 
 get "/" do
-  @repository_names = Bananajour.repositories.map{|r| r.name }
+  @repository_names = Bananajour.repositories.map{|r| r.name }.uniq.sort
   haml :home
 end
 
