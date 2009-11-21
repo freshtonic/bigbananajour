@@ -197,7 +197,8 @@
     %ul.cloners
       - for email in Bananajour.people_that_have_repository(name)
         %li
-          = email
           - repository = Bananajour::Repository.for_name(mangle_email(email) + "/" + name)
+          %img.gravatar{:src => repository.get_config("bigbananajour.gravatar")}
+          %p.person&= repository.get_config("bibananajour.person")
           %p.uri&= repository.uri
           %p.branches&= repository.grit_repo.branches.map{|b| b.name}.join(" ")
