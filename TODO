@@ -2,8 +2,4 @@
 BigBananajour TODO
 ==================
 
- - Repository advertising should have Bananajour's VERSION
- - Keep track of the repo gravatar of each clone
-    - could do this by adding a bigbananajour.gravatar.url config setting
-      to each repo, and updating it when it changes.
  - show commit log.
