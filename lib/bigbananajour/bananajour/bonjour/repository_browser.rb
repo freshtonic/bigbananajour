@@ -6,7 +6,6 @@ class RepositoryBrowser
       Repository.new(
         reply.text_record["name"],
         reply.text_record["uri"],
-        reply.text_record["ismirror"] == "true",
         Person.new(
           reply.text_record["bjour-name"],
           reply.text_record["bjour-email"],
