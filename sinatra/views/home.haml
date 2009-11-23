@@ -81,7 +81,7 @@
           :margin 10px 0
           &.loading
             :background transparent url('/loader.gif') no-repeat 4px center
-          a.name
+          span.name
             :font-size 12px
             :font-weight bold
             :color #666
@@ -194,11 +194,11 @@
   .repository
     %h2
       &= name
-    %ul.cloners
+    %ul.network
       - for email in Bananajour.people_that_have_repository(name)
         %li
           - repository = Bananajour::Repository.for_name(mangle_email(email) + "/" + name)
           %img.gravatar{:src => repository.get_config("bigbananajour.gravatar")}
-          %p.person&= repository.get_config("bibananajour.person")
-          %p.uri&= repository.uri
-          %p.branches&= repository.grit_repo.branches.map{|b| b.name}.join(" ")
+          %span.name&= repository.get_config("bigbananajour.person")
+          %span.uri&= repository.uri
+          %span.branches&= repository.grit_repo.branches.map{|b| b.name}.join(" ")
