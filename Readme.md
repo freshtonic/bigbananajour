@@ -36,22 +36,45 @@ Optional configuration: you can override the hostname by setting a global git co
 
 If you set this setting, then bananajour will assume that you know precisely what you're doing, it will not append .local, it will not check this hostname is valid, or do anything to it.  If you set this, then you're on your own.
 
+If you set this setting, then bananajour will assume that you know precisely what you're doing, it will not append .local, it will not check this hostname is valid, or do anything to it.  If you set this, then you're on your own.
+
+Make sure you have these ports open on your firewall:
+
+9417 - git - bigbananajour
+9418 - git - bananajour
+9331 - bananajour
+9332 - bigbananajour
+
 Linux support
 -------------
 
-To install the dnssd gem on linux you'll need [avahi](http://avahi.org/). For Ubunutu peeps this means:
+To install the dnssd gem on Linux you'll need [avahi](http://avahi.org/). For Ubunutu peeps this means:
 
-    sudo apt-get install libavahi-compat-libdnssd-dev
+  sudo apt-get install libavahi-compat-libdnssd-dev libavahi-discover
 
-On Linux, if you kill bananajour with kill -9 it doesn't get a chance to unregister the Bonjour services, and when it is restarted it will die with DNSSD::AlreadyRegisteredError.  Although not ideal, you can work around this my restarting avahi-daemon first.
+You can debug whether or not Avahi can see Bananajour and git-daemon Bonjour statuses using the command 'avahi-browse'.  This command can be found in the package 'avahi-utils'.
+
+The following command will show you all of the Bonjour services running on your local network:
+
+  avahi-browse --all
+
+If you kill bananajour with kill -9 it doesn't get a chance to unregister the Bonjour services, and when it is restarted it will die with DNSSD::AlreadyRegisteredError.  Although not ideal, you can work around this my restarting avahi-daemon first.
+
+You will also need to uncomment the following line in your /etc/avahi/avahi-daemon.conf.
+
+  domain-name=local
+
+And then restart the Avahi service:
+
+  sudo service avahi-daemon restart
+
+Note: You might have to restart the avahi-daemon sometimes if you are having problems seeing other bananajours.
 
 
 Official repository and support
 -------------------------------
 
 The official repo and support issues/tickets live at [github.com/freshtonic/bigbananajour](http://github.com/freshtonic/bigbananajour).
-
-Feature and support discussions live at [groups.google.com/group/bigbananajour](http://groups.google.com/group/bananajour).
 
 Developing
 ----------
@@ -94,6 +117,3 @@ License
 
 All directories and files are MIT Licensed.
 
-Warning to all those who still believe secrecy will save their revenue stream
------------------------------------------------------------------------------
-Bananas were meant to be shared. There are no secret bananas.
