@@ -1,8 +1,6 @@
 BigBananajour - Local git mirroring for Bananajour!
 ===================================================
 
-Follow [@bigbananajour](http://twitter.com/bigbananajour) on twitter for all release updates.
-
 ![Screenshot of local view of Bigbananajour 2.1.3](http://github.com/freshtonic/bigbananajour/raw/master/screenshot.png)
 
 Installation and usage
