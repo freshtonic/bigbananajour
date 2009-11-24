@@ -98,6 +98,7 @@ Contributors
 
 But the real credit should go to all these awesome people for making Bananajour:
 
+* [Tim Lucas](http://github.com/toolmantim)
 * [Carla Hackett](http://carlahackettdesign.com/) (logo)
 * [Nathan de Vries](http://github.com/atnan)
 * [Lachlan Hardy](http://github.com/lachlanhardy)
